@@ -3,6 +3,9 @@ import sys
 import nautilus
 import os
 import util
+import PyZenity
+import pwd
+import grp
 
 __all__ = ['backup', 'change_owner_to_me', 'open_in_terminal', 'open_real_path']
     
@@ -37,12 +40,21 @@ def backup():
     if os.access(f, os.F_OK):
         os.system("cp -R \"%s\" \"%s\"" % (f, bak))
         
+def gksu(cmd):
+    gksu_cmd = 'gksu "%s"' % cmd
+    os.system(gksu_cmd)            
+    
+def user_main_group(userid):
+    return grp.getgrgid(pwd.getpwnam(userid)[3])[0]
+        
+        
 def change_owner_to_me():
     user = os.getenv('USER')
+    group = user_main_group(user)
     files = ' '.join([util.escape_space(path) for path in nautilus.paths])
-    cmd = 'chown -R %s:%s %s' % (user, user, files)
-    gksu_cmd = 'gksu "%s"' % cmd
-    os.system(gksu_cmd)
+    
+    cmd = 'chown -R %s:%s %s' % (user, group, files)    
+    gksu(cmd)
             
 def open_in_terminal():
     dirs_to_open = []

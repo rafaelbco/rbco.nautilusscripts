@@ -3,6 +3,12 @@ import os
 
 version = '0.1dev'
 
+def get_console_script_entry_point(function, module):
+    return 'nautilus_%(module)s_%(function)s = rbco.nautilusscripts.%(module)s:%(function)s' % {
+        'module': module, 
+        'function': function
+    }
+
 setup(name='rbco.nautilusscripts',
       version=version,
       description="A set of scripts for Nautilus, the Gnome file manager application.",
@@ -29,22 +35,24 @@ setup(name='rbco.nautilusscripts',
       ],
       entry_points={
           'console_scripts': [
-              'open_real_path = rbco.nautilusscripts.misc:open_real_path',
-              'open_in_terminal = rbco.nautilusscripts.misc:open_in_terminal',              
-              'change_owner_to_me = rbco.nautilusscripts.misc:change_owner_to_me',              
-              'backup = rbco.nautilusscripts.misc:backup',              
-
-              'filename_length = rbco.nautilusscripts.fileinfo:filename_length',              
-              'real_path = rbco.nautilusscripts.fileinfo:real_path',              
-
-              'lower_case_underscore = rbco.nautilusscripts.rename:lower_case_underscore',
-              'unhide = rbco.nautilusscripts.rename:unhide',              
-              'add_prefix = rbco.nautilusscripts.rename:add_prefix',              
-              'delete_first_n_chars = rbco.nautilusscripts.rename:delete_first_n_chars',              
-              'replace = rbco.nautilusscripts.rename:replace',              
-              'mp3 = rbco.nautilusscripts.rename:mp3',              
-              'add_suffix = rbco.nautilusscripts.rename:add_suffix',          
-              'delete = rbco.nautilusscripts.rename:delete',                                                                                                                                                                                                        
+              get_console_script_entry_point('open_real_path', 'misc'),
+              get_console_script_entry_point('open_in_terminal', 'misc'),
+              get_console_script_entry_point('change_owner_to_me', 'misc'),
+              get_console_script_entry_point('backup', 'misc'),                                          
+              
+              get_console_script_entry_point('filename_length', 'fileinfo'),
+              get_console_script_entry_point('real_path', 'fileinfo'),  
+              
+              get_console_script_entry_point('lower_case_underscore', 'rename'),
+              get_console_script_entry_point('unhide', 'rename'),                                                                                                                
+              get_console_script_entry_point('add_prefix', 'rename'),                                                                                                                              
+              get_console_script_entry_point('delete_first_n_chars', 'rename'),                                                                                                                                                                                                                                                            
+              get_console_script_entry_point('replace', 'rename'),                                                                                                                
+              get_console_script_entry_point('mp3', 'rename'),
+              get_console_script_entry_point('add_suffix', 'rename'),
+              get_console_script_entry_point('delete', 'rename'),
+              
+              'rbco_nautilusscirpts_install = rbco.nautilusscripts.install:install'
           ],
       },
 )
