@@ -14,12 +14,12 @@ def unhide():
         renaming.unhide(f)
 
 def replace():
-    old = PyZenity.GetText("Enter the text to replace:")
+    old = PyZenity.GetText('Enter the text to replace:')
 
     if old == None:
         sys.exit(1)
 
-    new = PyZenity.GetText("Enter the new text:")
+    new = PyZenity.GetText('Enter the new text:')
 
     if new == None:
         sys.exit(1)
@@ -33,7 +33,7 @@ def lower_case_underscore():
     console.renlu()    
     
 def delete_first_n_chars():
-    n = PyZenity.GetText("Enter the number of chars to delete:")
+    n = PyZenity.GetText('Enter the number of chars to delete:')
 
     if n != None:
         try:
@@ -43,23 +43,22 @@ def delete_first_n_chars():
             sys.exit(1)
             
         renaming.rename_delete_first_chars(nautilus.paths, n)    
-        
-    
+            
 def delete():
-    s = PyZenity.GetText("Enter the text to delete:")
+    s = PyZenity.GetText('Enter the text to delete:')
 
     if s != None:
         renaming.rename_replace(nautilus.paths, s, '')
         
 def add_suffix():
-    suffix = PyZenity.GetText("Enter the suffix:")
+    suffix = PyZenity.GetText('Enter the suffix:')
 
     if suffix != None:
-        preserveExtension = sdialog.yesNoInputBox("Preserve file extension ?")    
+        preserveExtension = PyZenity.Question('Preserve file extension ?')
         renaming.rename_suffix(nautilus.paths, suffix, preserveExtension)        
         
 def add_prefix():
-    prefix = PyZenity.GetText("Enter the prefix:")
+    prefix = PyZenity.GetText('Enter the prefix:')
 
     if prefix != None:
         renaming.rename_prefix(nautilus.paths, prefix)            

@@ -1,6 +1,7 @@
 import sys
 import os
-from rbco.nautilusscripts import misc, fileinfo, rename
+import misc, fileinfo, rename
+import util
 
 def get_original_script_name(module, function):
     return 'nautilus_%s_%s' % (module.split('.')[-1], function)
@@ -8,9 +9,7 @@ def get_original_script_name(module, function):
 def get_new_script_path(module, function):
     return os.path.join(module.split('.')[-1], function)
 
-def mkdir_p(path):
-    if not os.path.exists(path):
-        os.makedirs(path)
+
 
 def install():
     """Install the Nautilus' scripts for the current user."""
@@ -30,7 +29,7 @@ def install():
         original_path = os.path.join(original_scripts_dir, original)
         new_path = os.path.join(nautilus_scripts_dir, new_path)
         
-        mkdir_p(os.path.dirname(new_path))
+        util.mkdir_p(os.path.dirname(new_path))
         
         print 'Symlinking %s to %s ...' % (original_path, new_path)
         

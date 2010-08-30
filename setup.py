@@ -39,7 +39,8 @@ setup(name='rbco.nautilusscripts',
               get_console_script_entry_point('open_in_terminal', 'misc'),
               get_console_script_entry_point('change_owner_to_me', 'misc'),
               get_console_script_entry_point('backup', 'misc'),                                          
-              
+              get_console_script_entry_point('execute_custom_command', 'misc'),
+                            
               get_console_script_entry_point('filename_length', 'fileinfo'),
               get_console_script_entry_point('real_path', 'fileinfo'),  
               
