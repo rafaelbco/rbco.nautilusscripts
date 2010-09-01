@@ -61,8 +61,8 @@ misc
 Changelog
 =========
 
-0.1dev - Unreleased
--------------------
+0.1 (2010-08-31)
+----------------
 
 * Initial release
 
