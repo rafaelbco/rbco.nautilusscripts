@@ -12,8 +12,7 @@ def get_console_script_entry_point(function, module):
 setup(name='rbco.nautilusscripts',
       version=version,
       description="A set of scripts for Nautilus, the Gnome file manager application.",
-      long_description=open("README.txt").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      long_description=open("README.txt").read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Programming Language :: Python",

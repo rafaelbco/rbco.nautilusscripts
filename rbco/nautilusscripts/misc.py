@@ -10,8 +10,7 @@ __all__ = ['backup', 'change_owner_to_me', 'open_in_terminal', 'open_real_path',
     
 def backup():
     """
-    Copies FILE to FILE.bak . If FILE.bak exists then first moves FILE.bak to 
-    FILE.bak.1 .
+    Copies FILE to FILE.bak . If FILE.bak exists then first moves FILE.bak to FILE.bak.1 .
     """
     f = nautilus.files[0]
 

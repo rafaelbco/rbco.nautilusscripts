@@ -1,27 +1,28 @@
+"""Provide the `install` function"""
 import sys
 import os
 import misc, fileinfo, rename
 import util
 
-def get_original_script_name(module, function):
-    return 'nautilus_%s_%s' % (module.split('.')[-1], function)
+MODULES = [misc, fileinfo, rename]
 
-def get_new_script_path(module, function):
-    return os.path.join(module.split('.')[-1], function)
-
-
+def get_new_script_path(module_name, function_name):
+    """
+    Given a `module_name` name and a `function_name` return the path where to install the correspondent
+    script. The path is relative to "~/.gnome2/nautilus-scripts".
+    """
+    return os.path.join(util.get_last_part_of_dotted_name(module_name), function_name)
 
 def install():
     """Install the Nautilus' scripts for the current user."""
-    original_scripts_dir = os.path.join(sys.prefix, 'bin')
-    nautilus_scripts_dir = os.path.expanduser('~/.gnome2/nautilus-scripts')
     
-    modules = [misc, fileinfo, rename]
+    original_scripts_dir = os.path.join(sys.prefix, 'bin')
+    nautilus_scripts_dir = os.path.expanduser('~/.gnome2/nautilus-scripts')    
         
     scripts = []     
-    for m in modules:
+    for m in MODULES:
         scripts.extend(
-            (get_original_script_name(m.__name__, f), get_new_script_path(m.__name__, f))
+            (util.get_original_script_name(m.__name__, f), get_new_script_path(m.__name__, f))
             for f in m.__all__
         )
     
