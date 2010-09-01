@@ -20,14 +20,4 @@ def gksu(cmd):
     
 def mkdir_p(path):
     if not os.path.exists(path):
-        os.makedirs(path)    
-        
-def get_original_script_name(module_name, function_name):
-    """
-    Given a `module_name` name and a `function_name` return the name of the executable script
-    created in this package's setup.py. 
-    
-    The returned name is resolved using the same naming schema as in setup.py. The naming schema
-    must be kept in sync in these two places.
-    """
-    return 'nautilus_%s_%s' % (util.get_last_part_of_dotted_name(module_name), function_name)        
+        os.makedirs(path)        

@@ -3,8 +3,7 @@ import sys
 import os
 import misc, fileinfo, rename
 import util
-
-MODULES = [misc, fileinfo, rename]
+import pkg_resources
 
 def get_new_script_path(module_name, function_name):
     """
@@ -13,19 +12,38 @@ def get_new_script_path(module_name, function_name):
     """
     return os.path.join(util.get_last_part_of_dotted_name(module_name), function_name)
 
+def get_console_scripts_info():
+    """
+    Return a sequence of dicts, one for each console scripts installed by this package, 
+    containing the following keys:
+    - name: The script name.
+    - module: The module name.
+    - function: The function name.
+    
+    Note: exclude the install script.
+    """
+    entry_points_map = pkg_resources.get_entry_map('rbco.nautilusscripts', 'console_scripts')
+    return [
+        {
+            'name': ep.name,
+            'module': ep.module_name,
+            'function': ep.attrs[0],
+        }
+        for ep in entry_points_map.itervalues()
+        if not ep.module_name.endswith('.install')
+    ]    
+
 def install():
-    """Install the Nautilus' scripts for the current user."""
-    
-    original_scripts_dir = os.path.join(sys.prefix, 'bin')
+    """Install the Nautilus' scripts for the current user."""   
     nautilus_scripts_dir = os.path.expanduser('~/.gnome2/nautilus-scripts')    
-        
-    scripts = []     
-    for m in MODULES:
-        scripts.extend(
-            (util.get_original_script_name(m.__name__, f), get_new_script_path(m.__name__, f))
-            for f in m.__all__
-        )
+    original_scripts_dir = os.path.join(sys.prefix, 'bin')
     
+    
+    scripts = [
+        (s['name'], get_new_script_path(s['module'], s['function']))
+        for s in get_console_scripts_info()
+    ]
+        
     for (original, new_path) in scripts:
         original_path = os.path.join(original_scripts_dir, original)
         new_path = os.path.join(nautilus_scripts_dir, new_path)
