@@ -29,7 +29,7 @@ setup(name='rbco.nautilusscripts',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'rbco.rename>=0.2',
+          'rbco.rename>=0.3',
           'PyZenity',
       ],
       entry_points={
@@ -51,6 +51,7 @@ setup(name='rbco.nautilusscripts',
               get_console_script_entry_point('mp3', 'rename'),
               get_console_script_entry_point('add_suffix', 'rename'),
               get_console_script_entry_point('delete', 'rename'),
+              get_console_script_entry_point('remove_accentuation', 'rename'),              
               
               'rbco_nautilusscirpts_install = rbco.nautilusscripts.install:install'
           ],

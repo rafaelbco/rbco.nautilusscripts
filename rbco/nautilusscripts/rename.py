@@ -5,7 +5,7 @@ import PyZenity
 from rbco.rename import renaming, console
 
 __all__ = ['unhide', 'replace', 'mp3', 'lower_case_underscore', 'delete', 'delete_first_n_chars', 
-    'add_suffix', 'add_prefix']
+    'add_suffix', 'add_prefix', 'remove_accentuation']
 
 def unhide():
     files = nautilus.files
@@ -62,3 +62,6 @@ def add_prefix():
 
     if prefix != None:
         renaming.rename_prefix(nautilus.paths, prefix)            
+        
+def remove_accentuation():
+    console.renremoveacc()

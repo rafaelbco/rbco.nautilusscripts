@@ -4,11 +4,12 @@ Changelog
 0.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Added new renaming script: ``remove_accentuation``.
+- Now depends on ``rbco.rename`` version ``>=0.3``. Previously was ``>=0.2``.
 
 
 0.1 (2010-08-31)
 ----------------
 
-* Initial release
+- Initial release
 
