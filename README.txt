@@ -33,6 +33,7 @@ rename
 ------
 
 - delete_first_n_chars
+- remove_accentuation
 - add_prefix
 - replace
 - delete
@@ -61,10 +62,17 @@ misc
 Changelog
 =========
 
+0.2 (2011-01-31)
+----------------
+
+- Added new renaming script: ``remove_accentuation``.
+- Now depends on ``rbco.rename`` version ``>=0.3``. Previously was ``>=0.2``.
+
+
 0.1 (2010-08-31)
 ----------------
 
-* Initial release
+- Initial release
 
 
 
