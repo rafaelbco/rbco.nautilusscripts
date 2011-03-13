@@ -62,6 +62,13 @@ misc
 Changelog
 =========
 
+0.3 (2011-03-13)
+----------------
+
+- Now the ``rbco_nautilusscirpts_install`` script correctly locates the installed scripts, instead 
+  of just assuming they were on ``/usr/bin``.
+
+
 0.2 (2011-01-31)
 ----------------
 
