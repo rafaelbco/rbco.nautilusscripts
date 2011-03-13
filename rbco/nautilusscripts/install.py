@@ -7,8 +7,8 @@ import pkg_resources
 
 def get_new_script_path(module_name, function_name):
     """
-    Given a `module_name` name and a `function_name` return the path where to install the correspondent
-    script. The path is relative to "~/.gnome2/nautilus-scripts".
+    Given a `module_name` name and a `function_name` return the path where to install the 
+    correspondent script. The path is relative to "~/.gnome2/nautilus-scripts".
     """
     return os.path.join(util.get_last_part_of_dotted_name(module_name), function_name)
 
@@ -32,6 +32,8 @@ def get_console_scripts_info():
         for ep in entry_points_map.itervalues()
         if not ep.module_name.endswith('.install')
     ]    
+    
+
 
 def install():
     """Install the Nautilus' scripts for the current user."""   
