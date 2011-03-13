@@ -4,6 +4,9 @@ import os
 import misc, fileinfo, rename
 import util
 import pkg_resources
+from distutils.command.install import install as Install
+from distutils.dist import Distribution
+
 
 def get_new_script_path(module_name, function_name):
     """
@@ -33,12 +36,20 @@ def get_console_scripts_info():
         if not ep.module_name.endswith('.install')
     ]    
     
-
+def get_installed_scripts_dir():
+    """
+    Return the absolute path to the directory where scripts created by easy_install are located.
+    This is usually "/usr/bin" or "/usr/local/bin".
+    """
+    i = Install(Distribution())
+    i.finalize_options()
+    return i.install_scripts
+    
 
 def install():
     """Install the Nautilus' scripts for the current user."""   
     nautilus_scripts_dir = os.path.expanduser('~/.gnome2/nautilus-scripts')    
-    original_scripts_dir = os.path.join(sys.prefix, 'bin')
+    original_scripts_dir = get_installed_scripts_dir()
     
     
     scripts = [
