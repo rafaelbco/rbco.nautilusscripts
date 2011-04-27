@@ -53,6 +53,8 @@ setup(name='rbco.nautilusscripts',
               get_console_script_entry_point('delete', 'rename'),
               get_console_script_entry_point('remove_accentuation', 'rename'),              
               
+              get_console_script_entry_point('rst2html', 'text'),                      
+              
               'rbco_nautilusscirpts_install = rbco.nautilusscripts.install:install'
           ],
       },
