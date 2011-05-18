@@ -57,17 +57,12 @@ misc
 - open_real_path
 - execute_custom_command
 
-text
-----
-
-- rst2html
-
 
 
 Changelog
 =========
 
-0.4 (unreleased)
+0.4 (2011-04-27)
 ----------------
 
 - Added ``text/rst2html`` script.
