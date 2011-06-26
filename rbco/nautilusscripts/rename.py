@@ -4,8 +4,8 @@ import nautilus
 import PyZenity  
 from rbco.rename import renaming, console
 
-__all__ = ['unhide', 'replace', 'mp3', 'lower_case_underscore', 'delete', 'delete_first_n_chars', 
-    'add_suffix', 'add_prefix', 'remove_accentuation']
+__all__ = ['unhide', 'replace', 'mp3', 'id3', 'lower_case_underscore', 'delete', 
+    'delete_first_n_chars', 'add_suffix', 'add_prefix', 'remove_accentuation']
 
 def unhide():
     files = nautilus.files
@@ -28,6 +28,9 @@ def replace():
     
 def mp3():
     console.renmp3()    
+
+def id3():
+    console.renid3()    
     
 def lower_case_underscore():
     console.renlu()    

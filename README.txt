@@ -37,6 +37,7 @@ rename
 - add_prefix
 - replace
 - delete
+- id3
 - lower_case_underscore
 - unhide
 - mp3
@@ -52,10 +53,15 @@ misc
 ----
 
 - change_owner_to_me
+- execute_custom_command
 - backup: Copies FILE to FILE.bak . If FILE.bak exists then first moves FILE.bak to FILE.bak.1 .
 - open_in_terminal
 - open_real_path
-- execute_custom_command
+
+text
+----
+
+- rst2html
 
 
 
