@@ -1,10 +1,10 @@
 Changelog
 =========
 
-0.5 (unreleased)
+0.5 (2011-06-26)
 ----------------
 
-- Nothing changed yet.
+- Added ``rename/mp3`` script.
 
 
 0.4 (2011-04-27)
