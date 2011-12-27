@@ -4,7 +4,7 @@ Changelog
 0.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Added local copy of PyZenity.py because it's gone missing from it's original URL.
 
 
 0.5 (2011-06-26)
