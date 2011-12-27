@@ -68,6 +68,18 @@ text
 Changelog
 =========
 
+0.6 (2011-12-27)
+----------------
+
+- Added local copy of PyZenity.py because it's gone missing from it's original URL.
+
+
+0.5 (2011-06-26)
+----------------
+
+- Added ``rename/mp3`` script.
+
+
 0.4 (2011-04-27)
 ----------------
 
