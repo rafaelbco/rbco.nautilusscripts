@@ -1,6 +1,6 @@
 import nautilus
 import os.path
-import PyZenity
+from . import PyZenity
 
 __all__ = ['filename_length', 'real_path']
 

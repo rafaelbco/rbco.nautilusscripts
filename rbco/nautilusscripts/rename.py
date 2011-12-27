@@ -1,7 +1,7 @@
 import os
 import sys
 import nautilus
-import PyZenity  
+from . import PyZenity  
 from rbco.rename import renaming, console
 
 __all__ = ['unhide', 'replace', 'mp3', 'id3', 'lower_case_underscore', 'delete', 

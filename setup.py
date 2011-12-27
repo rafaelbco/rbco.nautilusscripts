@@ -30,7 +30,6 @@ setup(name='rbco.nautilusscripts',
       install_requires=[
           'setuptools',
           'rbco.rename>=0.5',
-          'PyZenity',
       ],
       entry_points={
           'console_scripts': [

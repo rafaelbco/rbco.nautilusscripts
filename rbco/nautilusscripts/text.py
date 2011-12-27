@@ -1,5 +1,5 @@
 import nautilus
-import PyZenity
+from . import PyZenity
 from rbco.rename import renaming
 import wrapper
 import util

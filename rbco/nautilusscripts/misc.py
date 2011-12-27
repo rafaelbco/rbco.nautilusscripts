@@ -2,7 +2,7 @@ import os
 import sys
 import nautilus
 import util
-import PyZenity
+from . import PyZenity
 import commands
 
 __all__ = ['backup', 'change_owner_to_me', 'open_in_terminal', 'open_real_path', 
