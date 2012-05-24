@@ -1,13 +1,11 @@
 import nautilus
 from . import PyZenity
 from rbco.rename import renaming
-import wrapper
 import util
 from docutils.core import publish_file
+from .wrapper import nautilus_script
 
-__all__ = ['rst2html']
-
-@wrapper.capture_exceptions
+@nautilus_script
 def rst2html():
     if len(nautilus.files) != 1:
         PyZenity.ErrorMessage('Exactly one file must be selected.')

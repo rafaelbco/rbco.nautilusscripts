@@ -68,6 +68,12 @@ text
 Changelog
 =========
 
+0.7 (unreleased)
+----------------
+
+- Now all scripts capture and display exceptions to the user.
+
+
 0.6 (2011-12-27)
 ----------------
 

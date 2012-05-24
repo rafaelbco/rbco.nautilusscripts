@@ -4,10 +4,9 @@ import nautilus
 import util
 from . import PyZenity
 import commands
-
-__all__ = ['backup', 'change_owner_to_me', 'open_in_terminal', 'open_real_path', 
-    'execute_custom_command']
+from .wrapper import nautilus_script
     
+@nautilus_script
 def backup():
     """
     Copies FILE to FILE.bak . If FILE.bak exists then first moves FILE.bak to FILE.bak.1 .
@@ -37,7 +36,8 @@ def backup():
     # Copies FILE to FILE.bak    
     if os.access(f, os.F_OK):
         os.system("cp -R \"%s\" \"%s\"" % (f, bak))
-                
+           
+@nautilus_script                
 def change_owner_to_me():
     user = os.getenv('USER')
     group = util.user_main_group(user)
@@ -46,6 +46,7 @@ def change_owner_to_me():
     cmd = 'chown -R %s:%s %s' % (user, group, files)    
     util.gksu(cmd)
             
+@nautilus_script            
 def open_in_terminal():
     dirs_to_open = []
 
@@ -60,6 +61,7 @@ def open_in_terminal():
     cmd = '&'.join(cmd_list)
     os.system(cmd)      
     
+@nautilus_script    
 def open_real_path():
     def format_path(p):
         return escape_space(os.path.realpath(p))
@@ -71,6 +73,7 @@ def open_real_path():
 
     os.system('nautilus %s' % paths_str)          
 
+@nautilus_script
 def execute_custom_command():        
     cmd_template = '\n'.join([
         'source /etc/bash.bashrc',

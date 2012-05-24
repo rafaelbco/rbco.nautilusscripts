@@ -5,8 +5,6 @@ import misc, fileinfo, rename
 import util
 import pkg_resources
 
-
-
 def get_new_script_path(module_name, function_name):
     """
     Given a `module_name` name and a `function_name` return the path where to install the 
