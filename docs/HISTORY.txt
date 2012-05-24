@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.7 (unreleased)
+0.7 (2012-05-24)
 ----------------
 
 - Now all scripts capture and display exceptions to the user.
