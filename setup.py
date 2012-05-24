@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.6'
+version = '0.7-dev'
 
 def get_console_script_entry_point(function, module):
     return 'nautilus_%(module)s_%(function)s = rbco.nautilusscripts.%(module)s:%(function)s' % {
