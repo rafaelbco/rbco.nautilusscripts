@@ -14,4 +14,16 @@ if __name__ == '__main__':
     f = open('README.txt', 'w')
     f.write(readme)
     f.close()
-    
+
+
+if False:
+    print 'a'
+
+
+
+def a():
+    pass
+
+
+
+
