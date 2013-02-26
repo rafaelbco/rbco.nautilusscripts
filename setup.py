@@ -29,6 +29,7 @@ setup(name='rbco.nautilusscripts',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'clom',
           'rbco.rename>=0.5',
       ],
       entry_points={

@@ -4,7 +4,8 @@ Changelog
 0.8 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Added support for Nemo (fork of Nautilus for Linux Mint).
+- misc/open_in_terminal now uses "x-terminal-emulator" instead of "gnome-terminal".
 
 
 0.7 (2012-05-24)
@@ -34,7 +35,7 @@ Changelog
 0.3 (2011-03-13)
 ----------------
 
-- Now the ``rbco_nautilusscirpts_install`` script correctly locates the installed scripts, instead 
+- Now the ``rbco_nautilusscirpts_install`` script correctly locates the installed scripts, instead
   of just assuming they were on ``/usr/bin``.
 
 
