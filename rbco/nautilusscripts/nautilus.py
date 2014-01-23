@@ -15,12 +15,15 @@ def file_uri_to_path(uri):
 
     return urllib.unquote(uri.replace('file://', '', 1))
 
-current_path = file_uri_to_path(
-    os.environ.get(
-        'NAUTILUS_SCRIPT_CURRENT_URI',
-        os.environ.get('NEMO_SCRIPT_CURRENT_URI', '')
-    )
-)
+
+_programs = ('NAUTILUS', 'NEMO', 'CAJA')
+_possible_names = ['{0}_SCRIPT_CURRENT_URI'.format(i) for i in _programs]
+_var_name = [i for i in _possible_names if i in os.environ]
+
+current_uri_var_name = _var_name[0] if _var_name else _programs[0]
+
+current_uri = os.environ.get(current_uri_var_name, '')
+current_path = file_uri_to_path(current_uri)
 """Current absolute path."""
 
 files = sys.argv[1:]

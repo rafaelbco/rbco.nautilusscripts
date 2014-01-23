@@ -58,10 +58,14 @@ def link_scripts(dest_dir):
 
 def install():
     """Install the Nautilus' scripts for the current user."""
-    print 'Creating links for Nautilus ...'
-    dest = os.path.expanduser('~/.gnome2/nautilus-scripts')
-    link_scripts(dest)
-    print
-    print 'Creating links for Nemo ...'
-    dest = os.path.expanduser('~/.gnome2/nemo-scripts')
-    link_scripts(dest)
+    paths = (
+        '~/.gnome2/nautilus-scripts',
+        '~/.gnome2/nemo-scripts',
+        '~/.config/caja/scripts',
+    )
+
+    for path in paths:
+        print 'Creating in {0} ...'.format(path)
+        dest = os.path.expanduser(path)
+        link_scripts(dest)
+        print

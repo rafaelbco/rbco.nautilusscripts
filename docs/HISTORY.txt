@@ -4,7 +4,7 @@ Changelog
 0.8 (unreleased)
 ----------------
 
-- Added support for Nemo (fork of Nautilus for Linux Mint).
+- Added support for Nemo and Caja (forks of Nautilus for Linux Mint).
 - misc/open_in_terminal now uses "x-terminal-emulator" instead of "gnome-terminal".
 
 
