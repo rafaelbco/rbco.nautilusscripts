@@ -56,7 +56,7 @@ setup(name='rbco.nautilusscripts',
 
               get_console_script_entry_point('rst2html', 'text'),
 
-              'rbco_nautilusscirpts_install = rbco.nautilusscripts.install:install'
+              'rbco_nautilusscripts_install = rbco.nautilusscripts.install:install'
           ],
       },
 )
