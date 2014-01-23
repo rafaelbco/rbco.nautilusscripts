@@ -36,8 +36,8 @@ def get_console_scripts_info():
     ]
 
 
-def link_scripts(dest_dir):
-    original_scripts_dir = util.get_installed_scripts_dir()
+def link_scripts(dest_dir, src_dir=None):
+    original_scripts_dir = src_dir or util.get_installed_scripts_dir()
 
     scripts = [
         (s['name'], get_new_script_path(s['module'], s['function']))
@@ -51,13 +51,20 @@ def link_scripts(dest_dir):
         util.mkdir_p(os.path.dirname(new_path))
 
         print 'Symlinking %s to %s ...' % (original_path, new_path)
-        if os.path.exists(new_path):
+        if os.path.lexists(new_path):
             os.remove(new_path)
         os.symlink(original_path, new_path)
 
 
 def install():
     """Install the Nautilus' scripts for the current user."""
+    src = None
+    if len(sys.argv) == 2:
+        src = sys.argv[1]
+    elif len(sys.argv) > 2:
+        print >> sys.stderr, 'USAGE: rbco_nautilusscripts_install [SOURCE_DIR]'
+        sys.exit(1)
+
     paths = (
         '~/.gnome2/nautilus-scripts',
         '~/.gnome2/nemo-scripts',
@@ -67,5 +74,5 @@ def install():
     for path in paths:
         print 'Creating in {0} ...'.format(path)
         dest = os.path.expanduser(path)
-        link_scripts(dest)
+        link_scripts(dest, src_dir=src)
         print
