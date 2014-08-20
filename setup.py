@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '0.8.dev0'
+version = '0.8'
 
 
 def get_console_script_entry_point(function, module):
