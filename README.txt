@@ -68,7 +68,7 @@ text
 Changelog
 =========
 
-0.8 (unreleased)
+0.8 (2014-08-20)
 ----------------
 
 - Added support for Nemo and Caja (forks of Nautilus for Linux Mint).
